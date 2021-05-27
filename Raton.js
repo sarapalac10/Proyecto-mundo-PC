@@ -7,15 +7,16 @@ class Raton extends DispositivoEntrada {
         this._idRaton = ++Raton.contadorRatones;
     }
 
-    get contadorRatones(){
+    get idRaton(){
         return this._idRaton;
     }
 
     toString(){
-        return `idRaton: ${this._idRaton}`;
+        return `Ratón: [idRaton: ${this._idRaton}, tipoEntrada: ${this._tipoEntrada}, marca: ${this._marca}]`;
     }
 }
 
-let raton1 = new Raton('holi');
+let raton1 = new Raton('usb', 'hp');
 console.log(raton1.toString());
+
 
