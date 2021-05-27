@@ -27,7 +27,7 @@ class Monitor {
     }
 
     toString(){
-        return`IdMonitor: ${this._idMonitor}, marca: ${this._marca}, tamaño: ${this._tamaño}"`;
+        return` Monitor: [idMonitor: ${this._idMonitor}, marca: ${this._marca}, tamaño: ${this._tamaño}"]`;
     }
 }
 
