@@ -22,11 +22,6 @@ class DispositivoEntrada{
     }
 }
 
-dispositivoEntrada1 = new DispositivoEntrada('auricular','lg');
-
-console.log(dispositivoEntrada1);
-
-
 //Dispositivo Ratón
 
 class Raton extends DispositivoEntrada {
@@ -47,16 +42,6 @@ class Raton extends DispositivoEntrada {
     }
 }
 
-let raton1 = new Raton('usb', 'hp');
-console.log(raton1.toString());
-
-let raton2 = new Raton('bluetooth','dell');
-console.log(raton2.toString());
-
-raton2.marca = 'hp';
-
-console.log(raton2.toString());
-
 //Dispositivo Teclado
 
 class Teclado extends DispositivoEntrada{
@@ -76,12 +61,6 @@ class Teclado extends DispositivoEntrada{
     return `Teclado: [idTeclado: ${this._idTeclado}, this.tipoEntrada ${this._tipoEntrada}, marca: ${this._marca}]`;
     }
 }
-
-let teclado1 = new Teclado('usb','logitech');
-console.log(teclado1.toString());
-
-let teclado2 = new Teclado('bluetooth','mac');
-console.log(teclado2.toString());
 
 //Dispositivo monitor
 
@@ -118,11 +97,6 @@ class Monitor {
     }
 }
 
-let monitor1 = new Monitor('hp', 15);
-let monitor2 = new Monitor('samsung',20);
-
-console.log(monitor1.toString());
-console.log(monitor2.toString());
 
 //Computadora
 
@@ -138,19 +112,18 @@ class Computadora{
     }
 
     toString(){
-        return `Computadora: ${this._idComputadora}: ${this._nombre} \n ${this._monitor} \n ${this._raton} \n ${this._teclado} `
+        return `Computadora: ${this._idComputadora}: ${this._nombre}\n${this._monitor} \n ${this._raton} \n ${this._teclado} `
     }
 }
 
-
-//Clase Orden
+// Orden
 
 class Orden {
     static contadorOrdenes = 0;
 
     constructor(){
-        this._idOrdenes = ++Orden.contadorOrdenes;
-        this._computadoras = []; /*Arreglo vacío*/
+        this._idOrden = ++Orden.contadorOrdenes;
+        this._computadoras = []; 
     }
 
     get idOrden(){
@@ -164,28 +137,55 @@ class Orden {
     mostrarOrden(){
         let computadorasOrden = '';
         
-        for (let computadora of this._computadoras){
-           
-            computadorasOrden += `\n ${computadora}`;
+        for (let computadora of this._computadoras ) {
+            computadorasOrden += `\n${computadora}`;
         }
-
-        console.log(`Orden: ${this._idOrdenes}, Computadoras ${computadorasOrden}`)
+    
+        console.log(`Orden: ${this._idOrden}, Computadoras: ${computadorasOrden}`);
     }
 }
 
-let computadora1 = new Computadora('hp', monitor1, teclado1, raton1);
-console.log(`${computadora1}`);
+//Prueba
 
-let computadora2 = new Computadora('mac', monitor2, teclado1, raton2);
-console.log(`${computadora2}`);
+dispositivoEntrada1 = new DispositivoEntrada('auricular','lg');
 
+console.log(dispositivoEntrada1);
+
+let raton1 = new Raton('usb', 'hp');
+console.log(raton1.toString());
+
+let raton2 = new Raton('bluetooth','dell');
+console.log(raton2.toString());
+
+raton2.marca = 'hp';
+console.log(raton2.toString());
+
+
+let teclado1 = new Teclado('usb','logitech');
+console.log(teclado1.toString());
+
+let teclado2 = new Teclado('bluetooth','mac');
+console.log(teclado2.toString());
+
+let monitor1 = new Monitor('hp', 15);
+console.log(monitor1.toString());
+
+let monitor2 = new Monitor('samsung',20);
+console.log(monitor2.toString());
+
+let computadora1 = new Computadora('hola putos', monitor1, teclado1, raton1);
+console.log(computadora1.toString());
+//console.log( `${computadora1}` );
+
+
+let computadora2 = new Computadora('marcame esta ome', monitor2, teclado1, raton2);
+//console.log(`${computadora2}`);
+console.log(computadora2.toString());
 
 let orden1 = new Orden();
 orden1.agregarComputadora(computadora1);
 orden1.agregarComputadora(computadora2);
 orden1.mostrarOrden();
-
-
 
 
 
